@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Angular Pipes</h1>
+
+  <p>Wait for it ... {{p | async}}</p>
+  <p>Date {{date | async | date: 'HH:mm:ss'}}</p>
+  <p> Date2 {{date2 | date: 'HH:mm:ss'}}</p>
+
+  <hr/>
+
+  <input type="text" [(ngModel)]="search">
+
+  <button class="btn" (click)="searchField = 'title'">Title</button>
+  <button class="btn" (click)="searchField = 'text'">Text</button>
+
+  <hr/>
+
+  <button class="btn" (click)="addPost()">Add post</button>
+
+  <div
+    *ngFor="let post of posts | filter:search:searchField"
+    class="card">
+    <h2>{{post.title}}</h2>
+    <p>{{post.text}}</p>
+  </div>
+  <hr/>
+
+  <p>{{e}}</p>
+  <p>{{e | number: '3.1-2'}}</p>
+  <p>{{e | number: '0.0-0'}}</p>
+<hr/>
+  <p>{{str}}</p>
+  <p>{{str | uppercase | lowercase}}</p>
+  <p>{{str | titlecase}}</p>
+  <p>{{str | titlecase | slice:-9: -3}}</p>
+<hr/>
+  <p>{{date1}}</p>
+  <p>{{date1 | date: 'shortDate'}}</p>
+  <p>{{date1 | date: 'HH:mm:ss'}}</p>
+<hr/>
+  <p>{{num}}</p>
+  <p>{{num | currency}}</p>
+  <p>{{num | percent:'0.1-5'}}</p>
+
+  <hr/>
+  <p>{{2 | mult}}</p>
+  <p>{{2 | mult:5}}</p>
+  <p>{{2 | mult: -7}}</p>
+
+  <hr/>
+  <p>{{'    Sasha   '}}</p>
+  <p>{{'    Sasha   ' | exMarks}}</p>
+
+</div>
